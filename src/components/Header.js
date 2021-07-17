@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import colors from '../theme/colors';
 
 const Header = ({ title }) => {
 	return (
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
 	headerStyle: {
 		width: '100%',
 		height: 83,
-		backgroundColor: '#2aafff',
+		backgroundColor: colors.dark,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
