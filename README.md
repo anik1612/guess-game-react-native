@@ -2,4 +2,4 @@
 
 This is a simple react native apps.
 
-Thank You 😊
+Thank You 😊 
