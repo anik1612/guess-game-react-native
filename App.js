@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
+import Header from './src/components/Header';
+import StartGameScreen from './src/screens/StartGameScreen';
 
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<HomeScreen />
+      <Header title="Guess Game"/>
+			<StartGameScreen />
 		</View>
 	);
 }

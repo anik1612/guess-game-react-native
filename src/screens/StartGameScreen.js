@@ -10,11 +10,11 @@ import {
 	TouchableWithoutFeedback,
 } from 'react-native';
 import colors from '../theme/colors';
-import Input from './Input';
-import Card from './Card';
-import NumberContainer from './NumberContainer';
+import Input from '../components/Input';
+import Card from '../components/Card';
+import NumberContainer from '../components/NumberContainer';
 
-const GameScreen = () => {
+const StartGameScreen = () => {
 	const [enteredValue, setEnteredValue] = useState('');
 	const [confirmed, setConfirmed] = useState(false);
 	const [selectedNumber, setSelectedNumber] = useState();
@@ -46,6 +46,7 @@ const GameScreen = () => {
 		setConfirmed(true);
 		setSelectedNumber(parseInt(enteredValue));
 		setEnteredValue('');
+		Keyboard.dismiss();
 	};
 
 	let confirmedOutput;
@@ -131,9 +132,9 @@ const styles = StyleSheet.create({
 		width: '33%',
 	},
 	summaryContainer: {
-        width: '50%',
+		width: '50%',
 		marginTop: 29,
 	},
 });
 
-export default GameScreen;
+export default StartGameScreen;
