@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
+
 import Header from './src/components/Header';
 import GameScreen from './src/screens/GameScreen';
 import StartGameScreen from './src/screens/StartGameScreen';
