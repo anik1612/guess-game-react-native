@@ -4,10 +4,12 @@ import Header from './src/components/Header';
 import GameScreen from './src/screens/GameScreen';
 import StartGameScreen from './src/screens/StartGameScreen';
 import AnimatedSplash from 'react-native-animated-splash-screen';
+import GameOverScreen from './src/screens/GameOverScreen';
 
 export default function App() {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [userNumber, setUserNumber] = useState();
+	const [guessRounds, setGuessRounds] = useState(0);
 
 	useEffect(() => {
 		setIsLoaded(true);
@@ -17,10 +19,18 @@ export default function App() {
 		setUserNumber(selectedNumber);
 	};
 
+	const gameOverHandler = (numOfRounds) => {
+		setGuessRounds(numOfRounds);
+	};
+
 	let content = <StartGameScreen onStartGame={startGameHandler} />;
 
-	if (userNumber) {
-		content = <GameScreen userChoice={userNumber} />;
+	if (userNumber && guessRounds <= 0) {
+		content = (
+			<GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
+		);
+	} else if (guessRounds > 0) {
+		content = <GameOverScreen />;
 	}
 
 	return (
