@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
-import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading';
 
 import Header from './src/components/Header';
 import GameScreen from './src/screens/GameScreen';
@@ -18,6 +16,12 @@ export default function App() {
 		setIsLoaded(true);
 	}, []);
 
+	const configureNewGameHandler = () => {
+		setIsLoaded(false);
+		setUserNumber(null);
+		setGuessRounds(0);
+	};
+
 	const startGameHandler = (selectedNumber) => {
 		setUserNumber(selectedNumber);
 	};
@@ -33,7 +37,13 @@ export default function App() {
 			<GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
 		);
 	} else if (guessRounds > 0) {
-		content = <GameOverScreen />;
+		content = (
+			<GameOverScreen
+				roundsNumber={guessRounds}
+				userNumber={userNumber}
+				onRestart={configureNewGameHandler}
+			/>
+		);
 	}
 
 	return (
